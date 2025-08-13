@@ -94,10 +94,10 @@ public class MotorDirections extends OpMode {
         else
             rightRear.setPower(0);
 
-        telemetryA.addLine("Press A to spin the left front motor at 100% power");
-        telemetryA.addLine("Press Y to spin the left rear motor at 100% power");
-        telemetryA.addLine("Press B to spin the right front motor at 100% power");
-        telemetryA.addLine("Press X to spin the right rear motor at 100% power");
+        telemetryA.addLine("A | left front");
+        telemetryA.addLine("Y | left rear");
+        telemetryA.addLine("B | right front ");
+        telemetryA.addLine("X | right rear ");
         telemetryA.addData("Left Front Motor Direction: ", leftFrontMotorDirection);
         telemetryA.addData("Left Rear Motor Direction: ", leftRearMotorDirection);
         telemetryA.addData("Right Front Motor Direction: ", rightFrontMotorDirection);

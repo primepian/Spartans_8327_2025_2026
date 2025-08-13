@@ -16,8 +16,8 @@ import org.openftc.easyopencv.OpenCvPipeline;
 
 public class ColorDetectorBluePipeline extends OpenCvPipeline {
 
-    public Scalar lowerHSV = new Scalar(101, 50, 38); //Valor mas bajo pa detectar
-    public Scalar upperHSV = new Scalar(135, 255.0, 255.0);  //Valor mas Alto pa detectar
+    public Scalar lowerHSV = new Scalar(100, 100, 50); //Valor mas bajo pa detectar
+    public Scalar upperHSV = new Scalar(130, 255, 255);  //Valor mas Alto pa detectar
 
     private Mat hsvMat = new Mat(); //Guarda el frame convertido a hsv
     private Mat hsvBinaryMat = new Mat();   //Guarda el frame convertido a 1/0
