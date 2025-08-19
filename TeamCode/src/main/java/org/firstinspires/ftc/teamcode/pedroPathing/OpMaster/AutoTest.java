@@ -38,10 +38,13 @@ public class AutoTest extends OpMode {
         Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
 
         Basket_Sample1 = new Path(new BezierCurve(new Point(scorePose),new Point(controlPoint1),new Point(sample1Pose)));
-        Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
+        Basket_Sample1.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
 
         Sample1_Basket = new Path(new BezierLine(new Point(sample1Pose),new Point(scorePose)));
-        Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
+        Sample1_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
+
+        Basket_Sample2 = new Path(new BezierLine(new Point(scorePose),new Point(sample2Pose)));
+        Basket_Sample2.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
 
         Start_Basket = new Path(new BezierLine(new Point(startingPose),new Point(scorePose)));
         Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
