@@ -23,9 +23,9 @@ public class AutoTest extends OpMode {
 
     private int State;
 
-    private final Pose StartingPose = new Pose(136.000, 30.359, Math.toRadians(180));
-    private final Pose ScorePose = new Pose(128, 15, Math.toRadians(137));
-    private final Pose ControlPoint1 = new Pose(128, 15, Math.toRadians(137));
+    private final Pose startingPose = new Pose(136.000, 30.359, Math.toRadians(180));
+    private final Pose scorePose = new Pose(128, 15, Math.toRadians(137));
+    private final Pose controlPoint1 = new Pose(128, 15, Math.toRadians(137));
     private final Pose sample1Pose = new Pose(98.2, 35.6, Math.toRadians(270));
     private final Pose sample2Pose = new Pose(98.2, 27.1, Math.toRadians(270));
     private final Pose sample3Pose = new Pose(98.2, 16.4, Math.toRadians(270));
@@ -34,7 +34,19 @@ public class AutoTest extends OpMode {
     private Path Start_Basket, Basket_Sample1, Sample1_Basket, Basket_Sample2, Sample2_Basket, Basket_Sample3, Sample3_Basket, Basket_Parking;
 
     public void buildPaths() {
+        Start_Basket = new Path(new BezierLine(new Point(startingPose),new Point(scorePose)));
+        Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
 
+        Basket_Sample1 = new Path(new BezierCurve(new Point(scorePose),new Point(controlPoint1),new Point(sample1Pose)));
+        Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
+
+        Sample1_Basket = new Path(new BezierLine(new Point(sample1Pose),new Point(scorePose)));
+        Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
+
+        Start_Basket = new Path(new BezierLine(new Point(startingPose),new Point(scorePose)));
+        Start_Basket.setLinearHeadingInterpolation(startingPose.getHeading(), scorePose.getHeading());
+
+        
     }
 
     public void autonomousPathUpdate() {
@@ -57,7 +69,7 @@ public class AutoTest extends OpMode {
         autonomousPathUpdate();
 
         // Feedback to Driver Hub
-        telemetry.addData("path state", pathState);
+        telemetry.addData("path state", State);
         telemetry.addData("x", follower.getPose().getX());
         telemetry.addData("y", follower.getPose().getY());
         telemetry.addData("heading", follower.getPose().getHeading());
