@@ -10,6 +10,7 @@ import com.pedropathing.util.Constants;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import  com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.pedroPathing.constants.FConstants;
 import org.firstinspires.ftc.teamcode.pedroPathing.constants.LConstants;
@@ -128,7 +129,6 @@ public class AutoTest extends OpMode {
         telemetry.update();
     }
 
-    /** This method is called once at the init of the OpMode. **/
     @Override
     public void init() {
         pathTimer = new Timer();
@@ -136,14 +136,14 @@ public class AutoTest extends OpMode {
         opmodeTimer.resetTimer();
 
         Constants.setConstants(FConstants.class, LConstants.class);
-        follower = new Follower(hardwareMap);
+        follower = new Follower(hardwareMap, FConstants.class, LConstants.class);
         follower.setStartingPose(startingPose);
         buildPaths();
     }
 
-    /** This method is called continuously after Init while waiting for "play". **/
-    @Override
-    public void init_loop() {}
+    /* This method is called continuously after Init while waiting for "play". */
+//    @Override
+//    public void init_loop() {}
 
     /** This method is called once at the start of the OpMode.
      * It runs all the setup actions, including building paths and starting the path system **/
@@ -153,8 +153,8 @@ public class AutoTest extends OpMode {
         setPathState(0);
     }
 
-    /** We do not use this because everything should automatically disable **/
-    @Override
-    public void stop() {
-    }
+    /* We do not use this because everything should automatically disable */
+//    @Override
+//    public void stop() {
+//    }
 }
